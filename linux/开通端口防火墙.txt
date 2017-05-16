@@ -1,0 +1,5 @@
+开通端口8081
+firewall-cmd --query-port=8081/tcp
+firewall-cmd --add-port=8081/tcp --permanent
+systemctl stop firewalld.sercive
+systemctl start firewalld.sercive
