@@ -1,0 +1,8 @@
+spring boot https
+keytool -genkey -alias jad -keyalg RSA -keystore /root/datacollect-jar/datacollect/api/datacollect-api.keystore -dname "CN=huawei, OU=huawei, O=huawei, L=chengdu, ST=sichuan, C=china" -keypass lcddcl -storepass lcddcl
+################  https  ################
+server.ssl.enabled=true
+server.ssl.key-store=/root/datacollect-jar/datacollect/api/datacollect-api.keystore
+server.ssl.key-store-password=lcddcl
+server.ssl.key-store-type=JKS
+################  https  ################
