@@ -1,0 +1,17 @@
+#############
+# Kafka Doc #
+#############
+cd /opt/hadoopclient/Kafka/./kafka/bin/
+
+#topic列表
+
+sh kafka-topics.sh --zookeeper 10.74.97.176:24002,10.74.97.201:24002,10.74.97.40:24002/kafka --list
+sh kafka-topics.sh --zookeeper 192.168.88.211:24002,192.168.88.214:24002,192.168.88.213:24002/kafka --list
+#topic信息
+sh kafka-topics.sh --describe --zookeeper 192.168.88.211:24002,192.168.88.214:24002,192.168.88.213:24002/kafka --topic TopicForCollector1
+#删除topic
+sh kafka-topics.sh --delete --zookeeper 192.168.88.211:24002,192.168.88.214:24002,192.168.88.213:24002/kafka --topic TopicForCollector1
+#topic消息详情
+
+sh kafka-console-consumer.sh --zookeeper 10.74.97.176:24002,10.74.97.201:24002,10.74.97.40:24002/kafka --topic jadsencelibTopicForSpark --from-beginning
+sh kafka-console-consumer.sh --zookeeper 192.168.88.211:24002,192.168.88.214:24002,192.168.88.213:24002/kafka --topic TopicForCollector1 --from-beginning
