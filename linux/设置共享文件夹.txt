@@ -1,0 +1,42 @@
+root登录
+1.创建目录
+cd /
+mkdir jad_share_datasource
+chmod -R a+w /jad_share_datasource/
+chmod 1777 /jad_share_datasource/
+
+2.安装samla  （先rpm -qa|grep samba看是否已经安装）
+yum install –y samba
+yum install –y samba-client
+yum install –y winbind
+
+3.启动smbd
+sudo smbd start
+
+4.更新配置
+vim /etc/samba/smb.conf
+[JadShareDataSource]
+comment=this is Linux share directory
+valid users = root
+path=/jad_share_datasource/
+public=yes
+writable=yes
+guest ok = yes 
+browseable = yes   
+create mask = 0766   
+force create mode = 0766   
+directory mask = 0777   
+force directory mode = 0777   
+directory security mask = 0777   
+force directory security mode = 0777   
+
+4.添加用户root
+smbpasswd -a root
+
+5.重启smb
+sudo smbd restart
+
+注：
+#如果不能访问就关闭防火墙
+systemctl stop firewalld.sercive
+#systemctl start firewalld.sercive
