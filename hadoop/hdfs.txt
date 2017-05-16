@@ -1,0 +1,13 @@
+############
+# HDFS Doc #
+############
+#进入hdfs目录
+source /opt/hadoopclient/bigdata_env
+#设置用户
+export HADOOP_USER_NAME=hdfs
+#文件列表
+hdfs dfs -ls /test
+#读取文件内容
+hdfs dfs -cat /sharedata/1.txt
+#删除文件
+hdfs dfs -rmr /datacollect
