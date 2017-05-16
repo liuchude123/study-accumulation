@@ -1,0 +1,8 @@
+#若没有crontab命令
+#yum install vixie-cron
+#yum install crontabs
+
+#crontab -e   #进入计划任务编辑模式，将auto-del-30-days-ago-log.sh执行脚本加入到系统计划任务，到点自动执行
+输入：
+10 0 * * * /opt/soft/log/auto-del-7-days-ago-log.sh >/dev/null 2>&1
+这里的设置是每天凌晨0点10分执行auto-del-7-days-ago-log.sh
