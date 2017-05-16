@@ -1,0 +1,14 @@
+A.Linux与Windows文件互传
+windows文件复制Linux系统用XFTP进行远程传输
+XSHELL远程工具登录linux系统使用命令传文件
+1、XFTP式：载安装XFTP建立linux连接登录linux系统；左侧windows文件右侧linux文件夹相互拖拽即实现文件传输
+2、用远程工具XSHELL登录linux系统
+   (rpm -qa|grep lrzsz)
+   安装lrzsz包：yum install lrzsz ；没yum安装盘pakage找lrzsz包放服务器进行安装
+   rz 进行上传文件测试
+   sz 文件名 进行下载测试
+
+
+B.从一台Linux复制文件至另一台Linux   
+发送文件命令：scp file.type user@192.168.1.2:/directory
+关闭防火墙命令：/etc/init.d/iptables stop
