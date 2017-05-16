@@ -1,0 +1,47 @@
+一、文档示例
+-rw-r--r--		1		root		root		42304		Sep 4 18:26 		lcd.log
+档案权限		连结数  拥有者      所属组		文档大小	最后修改时间		档案名称
+
+
+二、档案权限
+linux文档权限由10个字符组成：
+第一个代表文档类型，d:目录，-：文档，l：连接档link file，b:装置文件里可供存储的设备（可随机存取装置），c：装置文件里串行端口设备，如鼠标、键盘（一次性读取装置）
+后九个字符三个为一组，rwx的组合，没有权限就用-，第一组表示档案拥有者的权限，第二组表示同群组的权限，第三组表示其他非本群组的权限
+
+r代表可读（read）
+w代表可写（write）
+x代表可执行（execute）
+-代表没有权限
+
+users拥有者
+group同群组
+others非本群组
+
+
+三、chmod修改文档权限
+1.通过权值修改
+权限分数：r->4,w->2,x->1,-->0
+
+例如：
+	chmod 751 filename
+
+2.通过字符修改
+	       u(users)
+						+(加入)		r
+		   g(group)
+chmod					-(减去)		w		filename
+		   o(others)
+						=(设置)		x
+		   a(all)
+		   
+例如：
+	chmod u=wx,go=rw filename
+	chmod a-x filename
+	
+	
+四、chgrg改变文档群组
+chgrg （-R（递归更变）） group filename
+
+
+五、chown改变文档拥有者
+chown （-R（递归变更）） 账号名称（:群组） filename
