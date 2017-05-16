@@ -1,0 +1,12 @@
+创建test
+mkdir test
+新建文件all.sh
+touch all.sh
+
+执行openssl加密命令
+openssl enc -des-ede3-cbc -in all.sh -out all0.sh -k 86484
+查看文件all0.sh,发现乱码说明已经加密功
+
+执行openssl解密命令
+openssl enc -des-ede3-cbc -in all0.sh -out all1.sh -d -k 86484
+查看文件all1.sh,清楚看到文件内容说明解密功
