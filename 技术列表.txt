@@ -13,7 +13,8 @@
 
 
 >>jvm
-
+http://blog.csdn.net/hsk256/article/details/49104955
+http://www.cnblogs.com/ityouknow/p/5603287.html
 
 >>设计模式
 
