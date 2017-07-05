@@ -1,5 +1,9 @@
 1.集合
 http://images2015.cnblogs.com/blog/966971/201611/966971-20161115190900029-1948714414.jpg
+linkedlist
+hashmap
+hashtable
+concurrenthashmap
 
 
 2.redis实战
@@ -12,6 +16,11 @@ http://blog.csdn.net/csdnxingyuntian/article/details/57414574?locationNum=2&fps=
 
 同步
 http://www.cnblogs.com/XHJT/p/3897440.html
+synchronized
+ReentrantLock
+volatile
+ThreadLocal
+
 
 volatile
 http://www.cnblogs.com/paddix/p/5367116.html
