@@ -1,0 +1,8 @@
+public class HashSet<E>
+    extends AbstractSet<E>
+    implements Set<E>, Cloneable, java.io.Serializable
+
+HashSet不是key-value结构，仅仅是存储不重复的元素，
+相当于简化版的HashMap，
+HashSet内部就是使用HashMap实现，
+只是包含HashMap中的key而已，HashSet里面的HashMap所有的value都是同一个Object(private static final Object PRESENT = new Object();)
