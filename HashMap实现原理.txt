@@ -3,6 +3,11 @@ HashMap实现原理
 public class HashMap<K,V> extends AbstractMap<K,V>
     implements Map<K,V>, Cloneable, Serializable
 
+HashMap是基于哈希表存储Key－Value对象应用的数据结构。
+存入HashMap的键必须具备两个关键函数： 
+1.equals()：判断两个Key是否相同，用来保证存入的Key的唯一性
+2.hashCode()：通过key-value对象的key来计算其引用在散列表中存放的位置	
+	
 总结：HashMap的实现原理
 1.利用key的hashCode重新hash计算出当前对象的元素在数组中的下标
 2.存储时，如果出现hash值相同的key，此时有两种情况。(1)如果key相同，则覆盖原始值；(2)如果key不同（出现冲突），则将当前的key-value放入链表中
@@ -67,7 +72,7 @@ HashMap默认初始容量DEFAULT_INITIAL_CAPACITY=16 ，HashMap默认负载因�
 1.对key的hashCode进行hash计算，再通过hash与table.length取模计算在数组中的存储位置index
 2.如果没有发生碰撞，直接存放到bucket里table[index]位置的链表第一个元素
 3.如果碰撞了，以链表的形式存在bucket里table[index]，如果节点已经存在则使用新的value替换原来的oldValue(保证key的唯一性) 
-4.如果碰撞导致链表过长(大于等于TREEIFY_THRESHOLD=8)，就把链表转换成红黑树，提高查询的效率(如果数组大小<MIN_TREEIFY_CAPACITY=64(4*16)，就要resize(扩容)) 
+4.如果碰撞导致链表过长(大于等于TREEIFY_THRESHOLD=8)，就把链表转换成红黑树，提高查询的效率
 5.如果素数量大于等于临界值(capactiy*factor)时，则进行扩容，是table数组长度变为table.length*2
 		
 TREEIFY_THRESHOLD = 8; // 红黑树阈值
@@ -100,7 +105,7 @@ b如果有冲突，则通过key.equals(k)去查找对应的entry
 containsKey方法是先计算hash然后使用hash和table.length取模得到index值，遍历table[index]元素查找是否包含key相同的值
 containsValue方法就是直接遍历所有元素直到找到value，由此可见本质上和普通数组和list的contains方法没什么区别，别指望它会像containsKey那么高效
 
-10.resize方法(Entry<K,V>[] resize()，Node<K,V>[] resize())
+10.resize方法(Entry<K,V>[] resize()，Node<K,V>[] resize())-rehash
 先创建一个容量为table.length*2的新table，修改临界值，然后把table里面元素计算hash值并使用hash与table.length*2重新计算index放入到新的table里面 
 注意：是用每个元素的hash全部重新计算index，而不是简单的把原table对应index位置元素简单的移动到新table对应位置
 
