@@ -1,4 +1,4 @@
-组合	    新生代GC策略		年老代GC策略		说明
+组合	    新生代GC策略		      年老代GC策略		      说明
 组合1	    Serial	            Serial Old	        Serial和Serial Old都是单线程进行GC，特点就是GC时暂停所有应用线程。
 组合2	    Serial	            CMS+Serial Old	    CMS(Concurrent Mark Sweep)是并发GC，实现GC线程和应用线程并发工作，不需要暂停所有应用线程。另外，当CMS进行GC失败时，会自动使用Serial Old策略进行GC。
 组合3	    ParNew              CMS	                使用-XX:+UseParNewGC选项来开启。ParNew是Serial的并行版本，可以指定GC线程数，默认GC线程数为CPU的数量。可以使用-XX:ParallelGCThreads选项指定GC的线程数。如果指定了选项-XX:+UseConcMarkSweepGC选项，则新生代默认使用ParNew GC策略。
