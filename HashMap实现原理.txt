@@ -117,7 +117,7 @@ hash = h ^ (h >>> 16); // 对key的hashcode进行了二次hash，以获得更好
 
 12.计算table数组中的下标index
 n为数组大小
-hash & (n - 1) 相当于hash%n
+hash & (n - 1) 相当于hash%n，但&操作性能更优 
 
 
 13.位运算(操作数为二进制数)
